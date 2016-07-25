@@ -1,7 +1,11 @@
 package org.spring.boot.api.base;
 
 import java.io.Serializable;
-
+/**
+ * 基础RequestBean
+ * @author pantheon
+ * @since 2016/7/25
+ */
 public class BaseRequestBean implements Serializable{
 	
 	private static final long serialVersionUID = 1L;

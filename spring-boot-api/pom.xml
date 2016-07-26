@@ -44,6 +44,13 @@
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
         </dependency>
+        
+        <!-- 数据库 -->
+        <dependency>
+           <groupId>com.h2database</groupId>
+           <artifactId>h2</artifactId>
+           <scope>runtime</scope>
+        </dependency>
     </dependencies>
 
   <build>
@@ -51,6 +58,20 @@
         <plugin>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-maven-plugin</artifactId>
+            <configuration>
+		        <executable>true</executable>
+		        <!-- 开启服务远程调试 -->
+                <jvmArguments>
+                     -Xdebug -Xrunjdwp:transport=dt_socket,server=y,suspend=y,address=5005
+                 </jvmArguments>
+		    </configuration>
+		    <dependencies>
+            <dependency>
+               <groupId>org.springframework</groupId>
+                <artifactId>springloaded</artifactId>
+                <version>1.2.0.RELEASE</version>
+            </dependency>
+    </dependencies>
         </plugin>
     </plugins>
 </build>

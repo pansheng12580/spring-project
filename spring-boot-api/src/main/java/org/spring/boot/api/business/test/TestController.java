@@ -1,7 +1,5 @@
 package org.spring.boot.api.business.test;
 
-import java.util.Properties;
-
 import org.spring.boot.api.base.BaseRequestBean;
 import org.spring.boot.api.util.LogUtil;
 import org.springframework.web.bind.annotation.RequestMapping;

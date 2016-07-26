@@ -1,2 +1,2 @@
 # spring-project
-this is a spring project with demos.
+This is a spring project with demos.

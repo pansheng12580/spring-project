@@ -11,6 +11,8 @@ import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.mangofactory.swagger.plugin.EnableSwagger;
+
 @Controller
 @SpringBootApplication
 public class Application implements CommandLineRunner,HealthIndicator{

@@ -25,23 +25,37 @@
 package org.spring.boot.api.conf;
 
 import org.springframework.context.annotation.Configuration;
+import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 
 /**
- * @author liuzh_3nofxnp
- * @since 2015-12-19 16:16
+ * @author pantheon
+ * @since 2016/8/12 22:25
  */
 @Configuration
 @EnableWebMvc
 public class WebMvcConfig extends WebMvcConfigurerAdapter {
 
+	/**
+	 * 映射静态资源
+	 */
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
         registry.addResourceHandler("/static/**").addResourceLocations("classpath:/static/");
         registry.addResourceHandler("/wiki/**").addResourceLocations("classpath:/wiki/");
+        //swagger api文档映射静态资源
+        registry.addResourceHandler("/api/**").addResourceLocations("classpath:/static/swagger-ui/");
     }
+
+    /**
+     * 允许跨域请求
+     */
+	@Override
+	public void addCorsMappings(CorsRegistry registry) {
+		registry.addMapping("/**");
+	}
 
 //    @Override
 //    public void configureViewResolvers(ViewResolverRegistry registry) {

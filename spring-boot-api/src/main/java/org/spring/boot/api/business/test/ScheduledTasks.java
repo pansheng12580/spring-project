@@ -1,9 +1,7 @@
 package org.spring.boot.api.business.test;
 
 import java.text.SimpleDateFormat;
-import java.util.Date;
 
-import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 
 @Component

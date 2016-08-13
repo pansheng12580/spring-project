@@ -19,6 +19,7 @@
      <mybatis.spring.version>1.2.4</mybatis.spring.version>
      <mapper.version>3.3.6</mapper.version>
      <pagehelper.version>4.1.1</pagehelper.version>
+     <springfox.version>2.5.0</springfox.version>
   </properties>
   
     <dependencyManagement>
@@ -129,10 +130,15 @@
         
         <!-- 文档工具 -->
         <dependency>
-            <groupId>com.mangofactory</groupId>
-            <artifactId>swagger-springmvc</artifactId>
-            <version>1.0.2</version>
-        </dependency>
+		    <groupId>io.springfox</groupId>
+		    <artifactId>springfox-swagger2</artifactId>
+		    <version>${springfox.version}</version>
+		</dependency>
+        <dependency>
+		    <groupId>io.springfox</groupId>
+		    <artifactId>springfox-swagger-ui</artifactId>
+		    <version>${springfox.version}</version>
+		</dependency>
     </dependencies>
 
   <build>

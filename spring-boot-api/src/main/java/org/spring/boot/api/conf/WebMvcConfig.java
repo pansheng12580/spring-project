@@ -34,21 +34,22 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter
  * @author pantheon
  * @since 2016/8/12 22:25
  */
-@Configuration
-@EnableWebMvc
+//@Configuration
+//@EnableWebMvc   屏蔽掉webMVCconfigurerAdapter,让springboot自动管理
 public class WebMvcConfig extends WebMvcConfigurerAdapter {
 
-	/**
-	 * 映射静态资源
+	/*
+	 * pringBoot默认已经将classpath:/META-INF/resources/和classpath:/META-INF/resources/webjars/映射
+     * 所以该方法不需要重写，如果在SpringMVC中，可能需要重写定义（我没有尝试）
+     * 重写该方法需要 extends WebMvcConfigurerAdapter
 	 */
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
         registry.addResourceHandler("/static/**").addResourceLocations("classpath:/static/");
         registry.addResourceHandler("/wiki/**").addResourceLocations("classpath:/wiki/");
         //swagger api文档映射静态资源
-        registry.addResourceHandler("/api/**").addResourceLocations("classpath:/static/swagger-ui/");
+//        registry.addResourceHandler("/api/**").addResourceLocations("classpath:/static/swagger-ui/");
     }
-
     /**
      * 允许跨域请求
      */

@@ -20,18 +20,25 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.alibaba.fastjson.JSON;
-import com.wordnik.swagger.annotations.Api;
-import com.wordnik.swagger.annotations.ApiOperation;
-@Api(value = "test-api", description = "测试test-api", position = 1)
+
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiResponse;
+import io.swagger.annotations.ApiResponses;
+@Api(value = "test",tags={"测试Api","TEST","TWO"})
 @RestController
 @RequestMapping("/test")
 public class TestController {
 //	@Autowired
 //	private JdbcTemplate jdbcTemplate;
 	
-	@ApiOperation(value = "测试",notes = "测试接口")
+
 	@RequestMapping(value="/test",method=RequestMethod.GET
 		,produces={MediaType.APPLICATION_JSON_UTF8_VALUE})
+	@ApiOperation(value = "测试",notes = "测试接口")
+	@ApiResponses(value = {
+            @ApiResponse(code = 200, message = "OK"),
+            @ApiResponse(code = 500, message = "参数不正确") })
 	public BaseRequestBean getTestRequestBean(){
 		LogUtil.i(this.getClass(), "/test");
 //		jdbcTemplate.execute("INSERT INTO TEST VALUES(1, 'Hello');");

@@ -74,7 +74,7 @@ public class TestController {
 		if(cityJson != null){
 			if(cityJson.getBean() != null && cityJson.getBean().size() > 0){
 				//开始解析cityjson
-				List<OtherCityJson_city> tempList = new ArrayList<>();
+				List<OtherCityJson_city> tempList = new ArrayList<OtherCityJson_city>();
 				for(int i=0;i<cityJson.getBean().size();i++){
 					tempList.add(TestController.getOtherCityJson_city(cityJson.getBean().get(i)));
 				}
@@ -89,7 +89,7 @@ public class TestController {
 		OtherCityJson_area target = new OtherCityJson_area();
 		target.setName(CityJson_area.getCt());
 		
-		List<String> strList = new ArrayList<>();
+		List<String> strList = new ArrayList<String>();
 		strList.add(CityJson_area.getCv());//地区代码
 		
  		target.setArea(strList);
@@ -100,7 +100,7 @@ public class TestController {
 		OtherCityJson_city target = new OtherCityJson_city();
 		target.setName(CityJson_city.getP());
 		
-		List<OtherCityJson_area> list = new ArrayList<>();
+		List<OtherCityJson_area> list = new ArrayList<OtherCityJson_area>();
 		for(CityJson_area area:CityJson_city.getC()){
 			list.add(TestController.getOtherCityJson_area(area));
 		}
